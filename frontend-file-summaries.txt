@@ -1,0 +1,17 @@
+{
+  "frontend/src/index.css": "Global stylesheet defining the dark solar energy theme with OKLCH color tokens, Orbitron/Inter fonts, glassmorphism utility classes, glow effects, animated gradient text, custom slider styling, and keyframe animations for float, pulse-glow, and entrance effects.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Orbitron/Inter font families, electric-blue/solar-gold/charcoal brand color tokens, glow box-shadow utilities, and custom keyframe animations for the solar energy design system.",
+  "frontend/src/hooks/useInView.ts": "Custom React hook using IntersectionObserver to detect when an element enters the viewport, with configurable threshold and a triggerOnce option for scroll-triggered animations.",
+  "frontend/src/hooks/useCountUp.ts": "Custom React hook that animates a number from 0 to a target value using requestAnimationFrame with cubic ease-out easing, triggered by a boolean flag.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder module for React Query hooks; no backend queries are needed for this UI-only application.",
+  "frontend/src/components/AnimatedBackground.tsx": "Canvas-based animated background rendering a subtle energy grid with pulsing blue grid lines and twinkling star particles for the hero section.",
+  "frontend/src/components/Solar3DModel.tsx": "React Three Fiber 3D scene featuring a distorted glowing sun sphere with orbital rings, energy particles, and dynamic lighting using @react-three/drei helpers.",
+  "frontend/src/components/Navbar.tsx": "Sticky glassmorphic navigation bar with the SolarPeak logo, section anchor links, a \"Get a Quote\" CTA button, scroll-opacity transition, and a mobile hamburger menu.",
+  "frontend/src/components/HeroSection.tsx": "Full-viewport hero section with the 3D solar model, animated background, Orbitron headline, floating stat badges, and dual CTA buttons for quote and product navigation.",
+  "frontend/src/components/StatsSection.tsx": "Scroll-triggered stats section displaying four animated count-up counters (Energy Saved, CO₂ Reduced, Homes Powered, Years of Excellence) inside glassmorphic cards with entrance animations.",
+  "frontend/src/components/ProductCard.tsx": "Individual product card component with image, name, description, spec overlay, hover-glow effect in either electric-blue or solar-gold, and a glassmorphism card style.",
+  "frontend/src/components/ProductShowcase.tsx": "Responsive 4-column product grid section showcasing four premium solar panel products with staggered entrance animations and a bottom CTA button.",
+  "frontend/src/components/SavingsCalculator.tsx": "Interactive savings calculator with two custom-styled range sliders (monthly bill and panel count), real-time calculation of monthly/annual savings, CO₂ offset, payback period, and 25-year projection inside a glassmorphic card.",
+  "frontend/src/components/ContactFooter.tsx": "Combined contact and footer section with a glassmorphic quote request form, company contact details, social media icons, a \"Why Choose SolarPeak\" panel, and a branded footer bar with attribution.",
+  "frontend/src/App.tsx": "Root application component composing Navbar, HeroSection, StatsSection, ProductShowcase, SavingsCalculator, and ContactFooter into a single-page dark-mode solar energy website."
+}

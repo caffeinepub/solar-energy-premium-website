@@ -1,0 +1,212 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Premium 3D Solar Energy Single-Page Website",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement dark mode visual theme with glassmorphism styling across all UI elements",
+      "acceptanceCriteria": [
+        "Page background uses deep charcoal tones throughout",
+        "Electric Blue and Solar Gold accents appear on headings, borders, CTAs, and highlights",
+        "All cards use backdrop-filter blur with semi-transparent backgrounds and glowing borders",
+        "Theme is consistent across all sections"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define CSS custom properties for dark theme colors (--charcoal-base: #0d0d0d, --charcoal-secondary: #1a1a2e, --electric-blue: #00bfff, --solar-gold: #ffd700). Add global glassmorphism utility classes (.glass-card with backdrop-filter: blur(10px), semi-transparent backgrounds, border highlights). Set body background to deep charcoal gradient."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom colors (charcoal-base, charcoal-secondary, electric-blue, solar-gold). Add custom utilities for glassmorphism effects (backdrop-blur values, border-glow animations). Configure dark mode as default with no toggle."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build Hero section with 3D rotating solar panel/sun model, animated background, headline, and CTA button",
+      "acceptanceCriteria": [
+        "Three.js/R3F canvas renders a continuously rotating 3D solar panel or sun sphere in the hero",
+        "Animated star-field or energy-grid fills the hero background",
+        "Headline text is prominent and visually compelling",
+        "'Request Quote' CTA button is clearly visible with accent color styling and hover effect",
+        "Hero section is full viewport height and responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/HeroSection.tsx",
+          "operation": "create",
+          "description": "Create Hero section component with full viewport height. Include headline 'Power Your Future with Clean Solar Energy', 'Request Quote' CTA button styled with Electric Blue/Solar Gold and glassmorphism hover effect. Integrate Solar3DModel and AnimatedBackground components. Make responsive with text sizing adjustments for mobile/tablet/desktop."
+        },
+        {
+          "path": "frontend/src/components/Solar3DModel.tsx",
+          "operation": "create",
+          "description": "Create Three.js/React Three Fiber component rendering a 3D rotating solar panel or glowing sun sphere. Use the generated image frontend/public/assets/generated/sun-orb-3d.dim_512x512.png as texture reference if needed. Implement continuous rotation animation. Configure camera, lighting, and responsive canvas sizing. Add ambient and point lights for glow effect."
+        },
+        {
+          "path": "frontend/src/components/AnimatedBackground.tsx",
+          "operation": "create",
+          "description": "Create animated star-field or energy-grid particle effect component using Canvas API or CSS animations. Render subtle moving particles or grid lines in Electric Blue tones overlaying the hero background. Ensure performance optimization for mobile devices."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render HeroSection component as the first section in the single-page layout. Ensure it appears at the top of the page flow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement Interactive Stats section with animated count-up counters triggered on scroll",
+      "acceptanceCriteria": [
+        "At least four stat counters are displayed in a responsive grid",
+        "Each counter animates from 0 to its final value when scrolled into view",
+        "Animation triggers only once per page load",
+        "Stats are displayed inside glassmorphic cards with accent color values"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/StatsSection.tsx",
+          "operation": "create",
+          "description": "Create Stats section component displaying a responsive grid (2x2 on mobile, 4 columns on desktop) of stat cards. Include four stats: 'Energy Saved (MWh)', 'CO2 Reduced (tons)', 'Homes Powered', 'Years of Experience' with target values. Apply glassmorphism styling to each card with Electric Blue/Solar Gold accent highlights. Integrate useCountUp hook for animation and Intersection Observer for scroll trigger."
+        },
+        {
+          "path": "frontend/src/hooks/useCountUp.ts",
+          "operation": "create",
+          "description": "Create custom React hook that animates a number from 0 to target value over a duration (e.g., 2 seconds). Accept parameters: target value, duration, and trigger flag. Use requestAnimationFrame for smooth animation. Return current animated value."
+        },
+        {
+          "path": "frontend/src/hooks/useInView.ts",
+          "operation": "create",
+          "description": "Create custom React hook using Intersection Observer API to detect when an element enters the viewport. Accept threshold parameter. Return boolean indicating visibility state and ref to attach to target element. Ensure trigger fires only once per page load."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render StatsSection component after HeroSection in the single-page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Product Showcase section with responsive grid of solar panel product cards with hover-glow effects",
+      "acceptanceCriteria": [
+        "Grid displays at minimum 4 product cards in a 2 or 4-column responsive layout",
+        "Each card has a product image, name, description, and a key specification",
+        "Hovering a card triggers a glowing border/shadow effect in Electric Blue or Solar Gold",
+        "Cards use glassmorphism styling consistent with overall theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProductShowcase.tsx",
+          "operation": "create",
+          "description": "Create Product Showcase section component with responsive grid (1 column mobile, 2 columns tablet, 4 columns desktop). Render at least 4 ProductCard components with product data (name, description, wattage/efficiency spec). Use generated product images: frontend/public/assets/generated/product-panel-1.dim_600x400.png, frontend/public/assets/generated/product-panel-2.dim_600x400.png, frontend/public/assets/generated/product-panel-3.dim_600x400.png, frontend/public/assets/generated/product-panel-4.dim_600x400.png as static assets in respective cards."
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create ProductCard component displaying product image, name, short description, and key specification. Apply glassmorphism card styling. Implement hover effect that adds Electric Blue or Solar Gold glowing box-shadow and border highlight using CSS transitions. Accept props: image path, name, description, spec."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render ProductShowcase component after StatsSection in the single-page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement Savings Calculator section with interactive sliders and real-time client-side calculation outputs",
+      "acceptanceCriteria": [
+        "At least two range sliders are present for relevant inputs (e.g., bill amount, roof area)",
+        "Output values (monthly savings, annual savings, CO2 offset) update in real-time as sliders move",
+        "Slider track and thumb are styled with accent colors",
+        "Calculator is contained within a glassmorphic card",
+        "No backend calls are made; all logic is frontend-only"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/SavingsCalculator.tsx",
+          "operation": "create",
+          "description": "Create Savings Calculator section component with glassmorphic card container. Include two range input sliders: one for monthly electricity bill amount (e.g., $50-$500) and one for roof size or panel count (e.g., 10-50 panels). Display real-time calculated outputs: monthly savings, annual savings, and CO2 offset (tons/year). Implement calculation logic entirely in component state using React hooks. Style sliders with Electric Blue/Solar Gold accent colors for track and thumb."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render SavingsCalculator component after ProductShowcase in the single-page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build glassmorphic Contact/Footer section with contact form, company details, social icons, and copyright",
+      "acceptanceCriteria": [
+        "Contact form includes Name, Email, Message fields and a styled Submit button",
+        "Footer contains placeholder contact info and social icons",
+        "Footer background uses glassmorphism (backdrop blur, semi-transparent panel)",
+        "Copyright line is present at the bottom",
+        "Section is fully responsive"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ContactFooter.tsx",
+          "operation": "create",
+          "description": "Create Contact/Footer section component with glassmorphism styling. Include contact form with Name, Email, Message input fields and Submit button (styled with Electric Blue/Solar Gold accent). Add placeholder company contact details (phone, email, address), social media icon links (placeholder URLs), and copyright line at bottom. Form submission can log to console or show a client-side success message. Make layout responsive: stack form and details vertically on mobile, side-by-side on desktop."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render ContactFooter component as the last section in the single-page layout."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Ensure full responsive layout with smooth scroll navigation and entrance animations on scroll",
+      "acceptanceCriteria": [
+        "Layout reflows correctly at 320px, 768px, and 1280px viewport widths",
+        "Navigation links scroll smoothly to target sections",
+        "Sections animate into view on scroll (fade/slide entrance effect)",
+        "No horizontal overflow or broken layouts at any tested breakpoint"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap each major section (Hero, Stats, Products, Calculator, Contact) with a section element having unique id attributes (e.g., id='home', 'stats', 'products', 'calculator', 'contact') for anchor navigation. Add scroll-behavior: smooth CSS or use smooth scrollIntoView for navigation. Integrate useInView hook or Intersection Observer for entrance animations (fade-in, slide-up) on each section as it enters viewport. Ensure all sections are responsive and test layout at 320px, 768px, 1280px breakpoints."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global smooth scroll behavior: html { scroll-behavior: smooth; }. Define keyframe animations for fade-in and slide-up entrance effects. Add utility classes (.fade-in, .slide-up) with CSS transitions for sections entering viewport. Ensure no horizontal overflow by setting max-width constraints and overflow-x: hidden on body if needed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add sticky glassmorphic navigation bar with logo, section links, CTA button, and mobile hamburger menu",
+      "acceptanceCriteria": [
+        "Navbar is sticky and visible at the top during scroll",
+        "All section anchor links are present and functional",
+        "'Get a Quote' button is styled with accent color",
+        "Navbar background transitions to higher opacity on scroll",
+        "Hamburger menu appears and functions correctly on mobile viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Navbar.tsx",
+          "operation": "create",
+          "description": "Create sticky navigation bar component with glassmorphism styling. Include SolarPeak Energy logo/wordmark using the generated image frontend/public/assets/generated/logo-solarpeak.dim_400x100.png. Add navigation links to sections: Home (#home), Stats (#stats), Products (#products), Calculator (#calculator), Contact (#contact). Include 'Get a Quote' button styled with Electric Blue/Solar Gold accent. Implement scroll event listener to increase navbar background opacity on scroll. Add hamburger menu icon for mobile that toggles a slide-out or dropdown menu with all links. Ensure navbar is fully responsive and collapses correctly on mobile viewports."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Import and render Navbar component at the top of the App component, above all sections. Ensure it remains fixed/sticky during scroll."
+        }
+      ]
+    }
+  ]
+}

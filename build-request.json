@@ -1,0 +1,193 @@
+{
+  "kind": "build_request",
+  "title": "Premium 3D Solar Energy Single-Page Website",
+  "projectName": "SolarPeak Energy",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a full-page dark mode visual theme using deep charcoal (#0d0d0d, #1a1a2e) as base colors, Electric Blue (#00bfff) and Solar Gold (#ffd700) as accent colors. Apply glassmorphism styling (backdrop-filter blur, semi-transparent backgrounds, subtle border highlights) consistently to all UI cards and panels across the site.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Dark Mode aesthetic with deep charcoal and 'Electric Blue/Solar Gold' accents",
+          "Incorporate 'Glassmorphism' for the UI cards"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page background uses deep charcoal tones throughout",
+        "Electric Blue and Solar Gold accents appear on headings, borders, CTAs, and highlights",
+        "All cards use backdrop-filter blur with semi-transparent backgrounds and glowing borders",
+        "Theme is consistent across all sections"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build a Hero section featuring: (1) a 3D rotating solar panel or glowing sun model rendered with Three.js via React Three Fiber as the focal visual element, (2) an animated star-field or energy-grid particle effect as the background, (3) a catchy headline such as 'Power Your Future with Clean Solar Energy', and (4) a prominent 'Request Quote' call-to-action button styled with Electric Blue/Solar Gold accent and glassmorphism.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "hero section featuring a 3D rotating solar panel or a glowing sun model using Three.js",
+          "background should have a subtle, animated star-field or energy-grid effect",
+          "Hero: Catchy headline, 'Request Quote' CTA, and the 3D focal point"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Three.js/R3F canvas renders a continuously rotating 3D solar panel or sun sphere in the hero",
+        "Animated star-field or energy-grid fills the hero background",
+        "Headline text is prominent and visually compelling",
+        "'Request Quote' CTA button is clearly visible with accent color styling and hover effect",
+        "Hero section is full viewport height and responsive"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement an Interactive Stats section with animated count-up counters for at least: 'Energy Saved (MWh)', 'CO2 Reduced (tons)', 'Homes Powered', and 'Years of Experience'. Counters should animate from zero to their target value when the section scrolls into view using an Intersection Observer.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Interactive Stats: Use counters for 'Energy Saved' and 'CO2 Reduced'"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least four stat counters are displayed in a responsive grid",
+        "Each counter animates from 0 to its final value when scrolled into view",
+        "Animation triggers only once per page load",
+        "Stats are displayed inside glassmorphic cards with accent color values"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build a Product Showcase section displaying a responsive grid of at least 4 premium solar panel product cards. Each card must include a product image (using the generated assets), product name, short description, key spec (e.g., wattage/efficiency), and a hover-glow effect using Electric Blue or Solar Gold box-shadow animation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Product Showcase: A grid of premium solar panels with hover-glow effects"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Grid displays at minimum 4 product cards in a 2 or 4-column responsive layout",
+        "Each card has a product image, name, description, and a key specification",
+        "Hovering a card triggers a glowing border/shadow effect in Electric Blue or Solar Gold",
+        "Cards use glassmorphism styling consistent with overall theme"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement a Savings Calculator section with an interactive slider component. The calculator should accept inputs for monthly electricity bill amount and roof size (or number of panels) via sliders, and display estimated monthly savings, annual savings, and CO2 offset in real-time as sliders are adjusted. All calculations are performed client-side.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Savings Calculator: A clean, functional-looking slider component"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least two range sliders are present for relevant inputs (e.g., bill amount, roof area)",
+        "Output values (monthly savings, annual savings, CO2 offset) update in real-time as sliders move",
+        "Slider track and thumb are styled with accent colors",
+        "Calculator is contained within a glassmorphic card",
+        "No backend calls are made; all logic is frontend-only"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build a minimalist glassmorphic Contact/Footer section containing: a contact form with Name, Email, and Message fields plus a submit button; company contact details (phone, email, address placeholders); social media icon links; and a copyright line. The entire footer must use glassmorphism styling and Electric Blue/Solar Gold accents.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Contact: A minimalist glassmorphic footer"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact form includes Name, Email, Message fields and a styled Submit button",
+        "Footer contains placeholder contact info and social icons",
+        "Footer background uses glassmorphism (backdrop blur, semi-transparent panel)",
+        "Copyright line is present at the bottom",
+        "Section is fully responsive"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Ensure the entire single-page layout is fully responsive across mobile (320px+), tablet (768px+), and desktop (1280px+) breakpoints. Implement smooth scroll navigation between sections. Add entrance animations (fade-in, slide-up) for section content as they enter the viewport using CSS transitions or a lightweight animation approach.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Ensure the code is fully responsive, clean",
+          "includes the necessary CDNs for animations (like Framer Motion or AOS)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout reflows correctly at 320px, 768px, and 1280px viewport widths",
+        "Navigation links scroll smoothly to target sections",
+        "Sections animate into view on scroll (fade/slide entrance effect)",
+        "No horizontal overflow or broken layouts at any tested breakpoint"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add a sticky top navigation bar with the SolarPeak Energy logo/wordmark, section anchor links (Home, Stats, Products, Calculator, Contact), and a 'Get a Quote' button. The navbar must use glassmorphism, become more opaque on scroll, and collapse into a hamburger menu on mobile.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "single-page, high-end 3D solar energy website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navbar is sticky and visible at the top during scroll",
+        "All section anchor links are present and functional",
+        "'Get a Quote' button is styled with accent color",
+        "Navbar background transitions to higher opacity on scroll",
+        "Hamburger menu appears and functions correctly on mobile viewports"
+      ]
+    }
+  ],
+  "constraints": [
+    "All logic and state must remain on the frontend; no backend canister state is required for this UI-only application",
+    "3D rendering must use Three.js via React Three Fiber",
+    "Do not modify any files listed in frontend.immutablePaths",
+    "Dark mode is mandatory — no light mode toggle required"
+  ],
+  "nonGoals": [
+    "User authentication or Internet Identity login",
+    "Backend data persistence or canister storage",
+    "Real payment or quote submission processing",
+    "CMS or editable content management",
+    "Multi-page routing"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Photorealistic premium monocrystalline solar panel, dark blue cells, silver frame, angled perspective view on dark background (solar-panel-hero.dim_800x600.png)",
+      "Close-up of glossy black solar panel surface with Electric Blue grid lines, studio lighting (product-panel-1.dim_600x400.png)",
+      "Sleek all-black solar panel with gold trim accents, premium aesthetic on dark background (product-panel-2.dim_600x400.png)",
+      "Large format commercial solar panel array, white frame, dark blue cells, aerial perspective (product-panel-3.dim_600x400.png)",
+      "Bifacial transparent solar panel with glowing edges on dark charcoal background (product-panel-4.dim_600x400.png)",
+      "Abstract glowing sun sphere with corona energy rays in Electric Blue and Solar Gold on black background (sun-orb-3d.dim_512x512.png)",
+      "SolarPeak Energy wordmark logo with solar icon in Electric Blue and Solar Gold on transparent background (logo-solarpeak.dim_400x100.png)"
+    ],
+    "edits": []
+  }
+}
